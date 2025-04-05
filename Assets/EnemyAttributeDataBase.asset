@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - enemyName: OrdinaryZombie
-    maxHealth: 100
+    enemyPrefab: {fileID: 5136595178195368049, guid: 1c2494b5546ebf046864dc6683b6a870, type: 3}
+    maxHealth: 1000
     healthRegenRate: 0
     damage: 10
     critChance: 0
@@ -22,6 +23,19 @@ MonoBehaviour:
     armor: 5
     dodgeChance: 0
     attackRange: 0
-    experienceReward: 5
-    dropRate: 100
+    experienceReward: 60
+    dropRate: 1
     speed: 2
+  - enemyName: BackUpDancer
+    enemyPrefab: {fileID: 8287770589095560896, guid: 57fba66d5968a944a8b1ac943f8f0d17, type: 3}
+    maxHealth: 3000
+    healthRegenRate: 0
+    damage: 20
+    critChance: 0
+    critMultiplier: 200
+    armor: 5
+    dodgeChance: 0
+    attackRange: 0
+    experienceReward: 120
+    dropRate: 1
+    speed: 1

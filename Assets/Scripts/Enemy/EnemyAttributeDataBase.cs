@@ -7,6 +7,9 @@ public class EnemyAttributeData
     [Tooltip("唯一标识")]
     public string enemyName;
 
+    [Tooltip("预制体")]
+    public GameObject enemyPrefab;
+
     [Tooltip("最大生命值")]
     public float maxHealth;
 

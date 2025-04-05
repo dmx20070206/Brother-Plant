@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4994205892623156028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090705961469624853}
+  - component: {fileID: 599096013559733150}
+  m_Layer: 0
+  m_Name: SunController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090705961469624853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994205892623156028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.946956, y: -4.2961354, z: 1.38505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599096013559733150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994205892623156028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299afdbb373ddbd4684929d47c27d940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunTypes:
+  - value: 100
+    size: 3
+    prefab: {fileID: 828256325075867190, guid: f0aa7330fa486e74fb67e91b97977bed, type: 3}
+  - value: 50
+    size: 2
+    prefab: {fileID: 614424094656915801, guid: a9125c1ec9ea4454abe0b9b328e857e9, type: 3}
+  - value: 10
+    size: 1
+    prefab: {fileID: 3858450411507205286, guid: 4a24c97a9dd38a04cb3e023756dc9614, type: 3}
+  - value: 5
+    size: 0.5
+    prefab: {fileID: 89953422183722653, guid: cc66dda415ca5e94696c08bfa5a10e29, type: 3}
+  dropRadius: 2
+  verticalForce: 5

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject weaponManager;
     public GameObject ui_controller;
     public GameObject music_controller;
+    public GameObject sun_controller;
 
     [Header("玩家")]
     public Player _player;
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
     [Header("Music 控制器")]
     public MusicController _music_controller;
 
+    [Header("阳光系统控制器")]
+    public SunController _sun_controller;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -66,10 +70,11 @@ public class GameManager : MonoBehaviour
     public void InitialAll()
     {
         Instantiate(player);
-        Instantiate(enemySpawn);
-        Instantiate(weaponManager);
-        Instantiate(ui_controller);
-        Instantiate(music_controller);
+        Instantiate(enemySpawn, transform);
+        Instantiate(weaponManager, transform);
+        Instantiate(ui_controller, transform);
+        Instantiate(music_controller, transform);
+        Instantiate(sun_controller, transform);
     }
 
     #region Player Management
@@ -261,7 +266,7 @@ public class GameManager : MonoBehaviour
             UnregisterMusicController();
         }
         _music_controller = music_controller;
-        _music_controller.name = "UIController";
+        _music_controller.name = "MusicController";
     }
 
     public void UnregisterMusicController()
@@ -269,6 +274,34 @@ public class GameManager : MonoBehaviour
         if (_music_controller != null)
         {
             _music_controller = null;
+        }
+    }
+    #endregion
+
+    #region Sun Controller
+    public SunController SunController
+    {
+        get
+        {
+            return _sun_controller;
+        }
+    }
+
+    public void RegisterSunController(SunController sun_controller)
+    {
+        if (_sun_controller != null)
+        {
+            UnregisterSunController();
+        }
+        _sun_controller = sun_controller;
+        _sun_controller.name = "SunController";
+    }
+
+    public void UnregisterSunController()
+    {
+        if (_sun_controller != null)
+        {
+            _sun_controller = null;
         }
     }
     #endregion
@@ -281,7 +314,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var enemy in _enemies)
         {
-            if (enemy == null) continue;
+            if (enemy == null || enemy.GetComponent<Enemy>()._isDie) continue;
 
             float distance = Vector3.Distance(position, enemy.transform.position);
             if (distance < minDistance)

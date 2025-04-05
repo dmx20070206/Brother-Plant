@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    public PlayerStats stats;
+    public PlayerStats _stats;
 
     [Header("受伤特效")]
     [SerializeField] private Color hitColor = Color.red;        // 受伤颜色
@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
     {
         GameManager.Instance.RegisterPlayer(this);
 
-        stats = new PlayerStats();
-        stats.Initialize("DMX");
+        _stats = new PlayerStats();
+        _stats.Initialize("DMX");
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _originalColor = _spriteRenderer.color;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        stats.UpdateStats(Time.deltaTime);
+        _stats.UpdateStats(Time.deltaTime);
     }
 
     private void OnDestroy()
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         }
 
         // 掉血逻辑
-        stats.TakeDamage(damage);
+        _stats.TakeDamage(damage);
     }
     #endregion
 

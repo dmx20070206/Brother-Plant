@@ -41,7 +41,8 @@ public class PeaProjectile : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                var result = GameManager.Instance.Player.stats.CalculateDamage(damage);
+                var result = GameManager.Instance.Player._stats.CalculateDamage(damage);
+                result.type = EnemyStatusSystem.StatusType.Normal;
                 enemy.TakeDamage(result, transform);
             }
 

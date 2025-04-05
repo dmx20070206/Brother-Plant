@@ -19,7 +19,7 @@ public class HealthUI : MonoBehaviour
 
     private void Update()
     {
-        healthPointImage.fillAmount = player.stats.currentHealth / player.stats.maxHealth.Value;
+        healthPointImage.fillAmount = player._stats.currentHealth / player._stats.maxHealth.Value;
 
         if (healthPointEffect.fillAmount >= healthPointImage.fillAmount)
         {

@@ -106,6 +106,10 @@ public class EnemySpawn : MonoBehaviour
         if (currentEnemyCount >= maxEnemies)
             yield break;
 
+        if(Random.value < 0.7f) enemyPrefab = GameManager.Instance.EnemyAttributeDataBase.GetEnemyAttribute("OrdinaryZombie").enemyPrefab;
+        else if(Random.value < 0.7f) enemyPrefab = GameManager.Instance.EnemyAttributeDataBase.GetEnemyAttribute("BackUpDancer").enemyPrefab;
+        else enemyPrefab = GameManager.Instance.EnemyAttributeDataBase.GetEnemyAttribute("FootBallZombie").enemyPrefab;
+
         // Éú³ÉµÐÈË
         GameObject enemyObj = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         enemyObj.transform.SetParent(EnemyContainer.transform);

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropHead : MonoBehaviour
+namespace _ordinaryZombie
 {
-    public void Damage()
+    public class DropHead : MonoBehaviour
     {
-        Destroy(gameObject);
+        public void Damage()
+        {
+            Destroy(gameObject);
+        }
     }
 }

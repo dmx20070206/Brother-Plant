@@ -4,10 +4,7 @@ public class PeaShooterWeapon : WeaponBase
 {
     [Header("发射设置")]
     [SerializeField] private PeaProjectile peaPrefab;
-    [SerializeField] private Transform shootPoints;
-
-    [Header("进阶设置")]
-    [SerializeField] private int projectilesPerShot = 1;
+    [SerializeField] private Transform[] shootPoints;
 
     private void Update()
     {
@@ -19,7 +16,6 @@ public class PeaShooterWeapon : WeaponBase
     public override void Initialize(Transform owner)
     {
         base.Initialize(owner);
-        if (!shootPoints) shootPoints = transform.Find("FirePoint");
 
         weaponName = "PeaShooter";
         WeaponData data = GameManager.Instance._weaponDatabase.GetWeapon(weaponName);
@@ -38,18 +34,18 @@ public class PeaShooterWeapon : WeaponBase
     {
         if (!IsTargetInRange()) return;
 
-        for (int i = 0; i < projectilesPerShot; i++)
+        for (int i = 0; i < shootPoints.Length; i++)
         {
             // 生成豌豆
             PeaProjectile pea = Instantiate(
                 peaPrefab,
-                shootPoints.position,
-                shootPoints.rotation
+                shootPoints[i].position,
+                shootPoints[i].rotation
             );
 
             // 初始化参数
             pea.Initialize(
-                shootPoints.TransformDirection(Vector3.right),
+                shootPoints[i].TransformDirection(Vector3.right),
                 Mathf.RoundToInt(damage)
             );
         }
@@ -57,7 +53,6 @@ public class PeaShooterWeapon : WeaponBase
 
     public override void UpgradeWeapon()
     {
-        projectilesPerShot += 1;
     }
 
     public override void UpdateTarget()

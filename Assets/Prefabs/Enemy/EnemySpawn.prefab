@@ -47,9 +47,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5136595178195368049, guid: 1c2494b5546ebf046864dc6683b6a870, type: 3}
   spawnAreas:
   - center: {x: 0, y: 0}
-    size: {x: 20, y: 20}
-  maxEnemies: 100
+    size: {x: 40, y: 40}
+  maxEnemies: 200
   spawnInterval: 3
-  spawnCountPerWave: 3
+  spawnCountPerWave: 5
   warningPrefab: {fileID: 2657647120862021571, guid: e05807496d2b66b4b9e0c9506ecb24f8, type: 3}
   EnemyContainer: {fileID: 0}

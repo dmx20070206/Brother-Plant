@@ -1,0 +1,130 @@
+Date : 2025-04-04 21:08:41
+Directory : e:\UnityLiabrary\Brother Plant\Assets\Scripts
+Total : 89 files,  3213 codes, 83 comments, 596 blanks, all 3892 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         38 |      2,691 |         83 |        545 |      3,319 |
+| YAML     |         51 |        522 |          0 |         51 |        573 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                      |         89 |      3,213 |         83 |        596 |      3,892 |
+| . (Files)                                                                                              |          7 |         56 |          0 |          7 |         63 |
+| Camera                                                                                                 |          2 |        119 |          4 |         20 |        143 |
+| Common                                                                                                 |          4 |        164 |         16 |         39 |        219 |
+| Enemy                                                                                                  |         13 |        656 |         10 |        106 |        772 |
+| Enemy (Files)                                                                                          |          9 |        448 |          9 |         78 |        535 |
+| Enemy\Ordinary zombie                                                                                  |          4 |        208 |          1 |         28 |        237 |
+| GameManager                                                                                            |         10 |        610 |         11 |        104 |        725 |
+| Player                                                                                                 |          8 |        278 |          9 |         60 |        347 |
+| UI                                                                                                     |          6 |        189 |          2 |         38 |        229 |
+| Weapon                                                                                                 |         39 |      1,141 |         31 |        222 |      1,394 |
+| Weapon (Files)                                                                                         |         11 |        313 |          3 |         60 |        376 |
+| Weapon\DoublePeaShooter                                                                                |          6 |        169 |          6 |         33 |        208 |
+| Weapon\GatlingPeaShooter                                                                               |          6 |        169 |          6 |         34 |        209 |
+| Weapon\IceShooter                                                                                      |          6 |        176 |          6 |         35 |        217 |
+| Weapon\Jalapeno                                                                                        |          4 |        149 |          4 |         29 |        182 |
+| Weapon\PeaShooter                                                                                      |          6 |        165 |          6 |         31 |        202 |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                               | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Camera.meta                                              | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Camera\CameraFollow.cs                                   | C#       |        108 |          4 |         19 |        131 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Camera\CameraFollow.cs.meta                              | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Common.meta                                              | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Common\CharacterStats.cs                                 | C#       |         78 |         11 |         19 |        108 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Common\CharacterStats.cs.meta                            | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Common\SunCollectible.cs                                 | C#       |         64 |          5 |         18 |         87 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Common\SunCollectible.cs.meta                            | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy.meta                                               | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Enemy.cs                                           | C#       |         24 |          3 |          8 |         35 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Enemy.cs.meta                                      | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\EnemyAttributeDataBase.cs                          | C#       |         65 |          0 |         19 |         84 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\EnemyAttributeDataBase.cs.meta                     | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\EnemyStats.cs                                      | C#       |         46 |          2 |          9 |         57 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\EnemyStats.cs.meta                                 | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\EnemyStatusSystem.cs                               | C#       |        261 |          4 |         37 |        302 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\EnemyStatusSystem.cs.meta                          | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Ordinary zombie.meta                               | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Ordinary zombie\DropHead.cs                        | C#       |         10 |          0 |          2 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Ordinary zombie\DropHead.cs.meta                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Ordinary zombie\OrdinaryZombie.cs                  | C#       |        176 |          1 |         24 |        201 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Enemy\Ordinary zombie\OrdinaryZombie.cs.meta             | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager.meta                                         | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\EnemySpawn.cs                                | C#       |        103 |          6 |         24 |        133 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\EnemySpawn.cs.meta                           | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\GameManager.cs                               | C#       |        289 |          1 |         39 |        329 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\GameManager.cs.meta                          | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\MusicController.cs                           | C#       |         12 |          2 |          5 |         19 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\MusicController.cs.meta                      | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\SunController.cs                             | C#       |         98 |          2 |         21 |        121 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\SunController.cs.meta                        | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\UIController.cs                              | C#       |         53 |          0 |         10 |         63 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\GameManager\UIController.cs.meta                         | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player.meta                                              | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\Player.cs                                         | C#       |         66 |          3 |         16 |         85 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\Player.cs.meta                                    | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\PlayerAttributeDataBase.cs                        | C#       |         69 |          0 |         21 |         90 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\PlayerAttributeDataBase.cs.meta                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\PlayerMove.cs                                     | C#       |         65 |          6 |         14 |         85 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\PlayerMove.cs.meta                                | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\PlayerStats.cs                                    | C#       |         34 |          0 |          5 |         39 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Player\PlayerStats.cs.meta                               | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI.meta                                                  | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI\DamagePopup.cs                                        | C#       |         50 |          1 |         13 |         64 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI\DamagePopup.cs.meta                                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI\HealthUI.cs                                           | C#       |         27 |          0 |          8 |         35 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI\HealthUI.cs.meta                                      | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI\SunUI.cs                                              | C#       |         79 |          1 |         14 |         94 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\UI\SunUI.cs.meta                                         | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon.meta                                              | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter.meta                             | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter\DoublePeaHitEffect.cs            | C#       |          8 |          0 |          2 |         10 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter\DoublePeaHitEffect.cs.meta       | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter\DoublePeaProjectile.cs           | C#       |         46 |          4 |         11 |         61 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter\DoublePeaProjectile.cs.meta      | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter\DoublePeaShooterWeapon.cs        | C#       |         82 |          2 |         17 |        101 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\DoublePeaShooter\DoublePeaShooterWeapon.cs.meta   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter.meta                            | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter\GatlingPeaHitEffect.cs          | C#       |          8 |          0 |          2 |         10 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter\GatlingPeaHitEffect.cs.meta     | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter\GatlingPeaProjectile.cs         | C#       |         46 |          4 |         11 |         61 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter\GatlingPeaProjectile.cs.meta    | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter\GatlingPeaShooterWeapon.cs      | C#       |         82 |          2 |         18 |        102 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\GatlingPeaShooter\GatlingPeaShooterWeapon.cs.meta | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter.meta                                   | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter\IceHitEffect.cs                        | C#       |          8 |          0 |          2 |         10 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter\IceHitEffect.cs.meta                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter\IceProjectile.cs                       | C#       |         49 |          4 |         12 |         65 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter\IceProjectile.cs.meta                  | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter\IceShooterWeapon.cs                    | C#       |         86 |          2 |         18 |        106 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\IceShooter\IceShooterWeapon.cs.meta               | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\Jalapeno.meta                                     | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\Jalapeno\FireProjectile.cs                        | C#       |         41 |          2 |          9 |         52 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\Jalapeno\FireProjectile.cs.meta                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\Jalapeno\JalapenoWeapon.cs                        | C#       |         86 |          2 |         18 |        106 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\Jalapeno\JalapenoWeapon.cs.meta                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter.meta                                   | YAML     |          8 |          0 |          1 |          9 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter\PeaHitEffect.cs                        | C#       |          8 |          0 |          2 |         10 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter\PeaHitEffect.cs.meta                   | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter\PeaProjectile.cs                       | C#       |         44 |          4 |         10 |         58 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter\PeaProjectile.cs.meta                  | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter\PeaShooterWeapon.cs                    | C#       |         80 |          2 |         16 |         98 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\PeaShooter\PeaShooterWeapon.cs.meta               | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\WeaponBase.cs                                     | C#       |         62 |          0 |         13 |         75 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\WeaponBase.cs.meta                                | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\WeaponDataBase.cs                                 | C#       |         49 |          1 |          9 |         59 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\WeaponDataBase.cs.meta                            | YAML     |         11 |          0 |          1 |         12 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\WeaponManager.cs                                  | C#       |        129 |          2 |         30 |        161 |
+| e:\UnityLiabrary\Brother Plant\Assets\Scripts\Weapon\WeaponManager.cs.meta                             | YAML     |         11 |          0 |          1 |         12 |
+| Total                                                                                                  |          |      3,213 |         83 |        596 |      3,892 |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

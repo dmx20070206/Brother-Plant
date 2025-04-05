@@ -17,7 +17,39 @@ MonoBehaviour:
     prefab: {fileID: 6482581804527630158, guid: ed315a84006f08640b9b7aa042201dcb, type: 3}
     weaponIcon: {fileID: 21300000, guid: 471820a9f743aff4a9d2cecf540a7289, type: 3}
     description: "\u8C4C\u8C46\u5C04\u624B"
-    damage: 10
+    damage: 20
     attackInterval: 0.3
+    attackRange: 50
+    rotationSpeed: 30
+  - weaponName: IceShooter
+    prefab: {fileID: 6649044295012595597, guid: a6d5d54f439896c4c9d60bb0dae9dc12, type: 3}
+    weaponIcon: {fileID: 21300000, guid: 99d6da1d40b439d4cb98256b181f6f79, type: 3}
+    description: "\u5BD2\u51B0\u5C04\u624B"
+    damage: 20
+    attackInterval: 0.3
+    attackRange: 50
+    rotationSpeed: 30
+  - weaponName: Jalapeno
+    prefab: {fileID: 8907149019488790131, guid: 4c3faa0b1bbb32c49b282d84627fefef, type: 3}
+    weaponIcon: {fileID: 21300000, guid: 80ab60243738bd04f99bae4084a47697, type: 3}
+    description: "\u706B\u7206\u8FA3\u6912"
+    damage: 60
+    attackInterval: 1
+    attackRange: 25
+    rotationSpeed: 50
+  - weaponName: DoublePeaShooter
+    prefab: {fileID: 114657536264294832, guid: 3a5c11f69d0cdf8429fac21d01ccb388, type: 3}
+    weaponIcon: {fileID: 21300000, guid: 47b736ec4d2794b4d9e5d0661d16ca0b, type: 3}
+    description: "\u53CC\u53D1\u5C04\u624B"
+    damage: 30
+    attackInterval: 0.2
+    attackRange: 50
+    rotationSpeed: 30
+  - weaponName: GatlingPeaShooter
+    prefab: {fileID: -8998415866691985346, guid: eba00692f34ff5a47aacbd26f757583c, type: 3}
+    weaponIcon: {fileID: 21300000, guid: b817ef067bc938449a2a161b1a8d806c, type: 3}
+    description: "\u673A\u67AA\u5C04\u624B"
+    damage: 30
+    attackInterval: 0.15
     attackRange: 50
     rotationSpeed: 30

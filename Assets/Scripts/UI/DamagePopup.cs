@@ -8,13 +8,18 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] private float fadeDuration = 2f;
     [SerializeField] private Vector3 moveOffset = new Vector3(0, 1, 0);
 
+    Material _materialInstance;
+
     private void Awake()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
         Destroy(gameObject, fadeDuration);
+
+        _materialInstance = new Material(textMesh.fontSharedMaterial);
+        textMesh.fontMaterial = _materialInstance;
     }
 
-    public static void Create(Vector3 position, string text, bool isCrit = false)
+    public static void Create(Vector3 position, string text, Color color, bool isCrit = false)
     {
         GameObject instance = Instantiate(GameManager.Instance.UIController.damagePopupPrefab, position, Quaternion.identity);
 
@@ -25,14 +30,18 @@ public class DamagePopup : MonoBehaviour
         }
 
         DamagePopup popup = instance.GetComponent<DamagePopup>();
-        popup.Setup(text, isCrit);
+        popup.Setup(text, color, isCrit);
     }
 
-    private void Setup(string text, bool isCrit)
+    private void Setup(string text, Color color, bool isCrit)
     {
         textMesh.text = text;
-        textMesh.color = isCrit ? Color.yellow : Color.white;
+        textMesh.color = isCrit ? Color.yellow : color;
         textMesh.fontSize = isCrit ? 0.8f : 0.4f;
+
+        // 设置材质参数
+        _materialInstance.SetColor("_OutlineColor", Color.black);
+        _materialInstance.SetFloat("_OutlineWidth", 0.3f);
 
         StartCoroutine(Animate());
     }

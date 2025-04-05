@@ -10,16 +10,15 @@ public class OrdinaryZombie : Enemy
     protected float _lastAttackTime;          // 上一次攻击时间
     protected bool _isInAttackRange;          // 是否在攻击范围内
 
-    protected bool _isDie;                    // 是否进入死亡状态
     protected bool _isHeadDrop;               // 头部是否掉落
     protected float _timeInDie;               // 进入死亡状态的时间
     protected float _timeToDie;               // 死亡状态移动或进食的最长时间
-
-    protected Color _originalColor;           // 正常颜色
-    protected Coroutine _flashRoutine;        // 受伤特效携程
+    protected bool _isAlreadyDie;             // 是否已经死亡
 
     [SerializeField] private GameObject headPrefab;
     [SerializeField] private Transform headPos;
+
+    private Dictionary<EnemyStatusSystem.StatusType, bool> _status;
 
     #region Life Cycle
     private void Awake()
@@ -27,14 +26,21 @@ public class OrdinaryZombie : Enemy
         GameManager.Instance.RegisterEnemy(this);
         InitializeComponents();
         InitializeData();
-
     }
+
+    private void Start()
+    {
+        _status = GetComponent<EnemyStatusSystem>()._have_status;
+    }
+
     private void Update()
     {
         UpdateMovement();
         UpdateAttackCycle();
         UpdateFacingDirection();
         UpdateDieStat();
+
+        animator.speed = _status[EnemyStatusSystem.StatusType.Frozen] ? 0f : 1f;
     }
     private void OnDestroy()
     {
@@ -54,7 +60,6 @@ public class OrdinaryZombie : Enemy
     }
     private void InitializeData()
     {
-        _originalColor = _spriteRenderer.color;
         _player = GameManager.Instance.Player;
         _flipCooldown = 0.1f;
         _stats = new EnemyStats();
@@ -87,16 +92,21 @@ public class OrdinaryZombie : Enemy
     {
         _isAttacking = true;
         _rb.velocity = Vector2.zero;
-        animator.SetBool("EATTING", true);
+        animator.SetBool("Eat", true);
     }
     public override void EndAttack()
     {
         _isAttacking = false;
-        animator.SetBool("EATTING", false);
+        animator.SetBool("Eat", false);
     }
     private void UpdateAttackCycle()
     {
-        if (_isInAttackRange && Time.time > _lastAttackTime + attackInterval)
+        if (_status[EnemyStatusSystem.StatusType.Frozen]) return;
+        if (_isAlreadyDie) return;
+
+        float interval = _status[EnemyStatusSystem.StatusType.Slow] ? attackInterval * 0.5f : attackInterval;
+
+        if (_isInAttackRange && Time.time > _lastAttackTime + interval)
         {
             ApplyDamage();
             _lastAttackTime = Time.time;
@@ -129,16 +139,6 @@ public class OrdinaryZombie : Enemy
         // 显示伤害数字
         GameManager.Instance.UIController.ShowDamageFeedback(damage, transform);
 
-        // 触发受伤特效
-        if (_spriteRenderer != null)
-        {
-            if (_flashRoutine != null)
-            {
-                StopCoroutine(_flashRoutine);
-            }
-
-            _flashRoutine = StartCoroutine(HitEffectRoutine());
-        }
         _stats.TakeDamage(damage);
         if (_stats.currentHealth <= 0)
         {
@@ -162,11 +162,13 @@ public class OrdinaryZombie : Enemy
         if (_timeInDie > 0.6f) 
         { 
             animator.SetTrigger("MustDie");
-            _rb.velocity /= 5;
+            _isAlreadyDie = true;
+            _rb.velocity = Vector2.zero;
         }
     }
     public void Damage()
     {
+        GameManager.Instance.SunController.TryDropItems(this);
         Destroy(gameObject);
     }
     #endregion
@@ -174,36 +176,28 @@ public class OrdinaryZombie : Enemy
     #region Move and Rotate
     private void UpdateMovement()
     {
-        Vector2 direction = (_player.transform.position - transform.position).normalized;
-        _rb.velocity = _isAttacking ? Vector2.zero : direction * _stats.speed.Value;
-    }
+        if (_status[EnemyStatusSystem.StatusType.Frozen]) 
+        {
+            _rb.velocity = Vector2.zero;
+            return; 
+        }
 
+        float speed = _status[EnemyStatusSystem.StatusType.Slow] ?
+            _stats.speed.Value * 0.5f : _stats.speed.Value;
+
+        Vector2 direction = (_player.transform.position - transform.position).normalized;
+        _rb.velocity = _isAttacking ? Vector2.zero : direction * speed;
+    }
 
     private void UpdateFacingDirection()
     {
+        if (_status[EnemyStatusSystem.StatusType.Frozen] == true) return;
+
         if (_rb.velocity.x != 0 && Time.time > _lastFlipTime + _flipCooldown)
         {
             _spriteRenderer.flipX = _rb.velocity.x > 0;
             _lastFlipTime = Time.time;
         }
-    }
-    #endregion
-
-    #region Effect
-    protected IEnumerator HitEffectRoutine()
-    {
-        float elapsed = 0;
-        while (elapsed < flashDuration)
-        {
-            _spriteRenderer.color = Color.Lerp(
-                hitColor,
-                _originalColor,
-                elapsed / flashDuration
-            );
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        _spriteRenderer.color = _originalColor;
     }
     #endregion
 }

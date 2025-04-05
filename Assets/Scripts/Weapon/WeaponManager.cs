@@ -23,7 +23,7 @@ public class WeaponManager : MonoBehaviour
 
     public void Initialize()
     {
-        _playerStats = GameManager.Instance.Player.stats;
+        _playerStats = GameManager.Instance.Player._stats;
         maxWeapons = _playerStats.maxWeapons;
 
         InitializePositionPoints();
@@ -32,11 +32,12 @@ public class WeaponManager : MonoBehaviour
         _weaponContainer.SetParent(GameManager.Instance.Player.transform);
 
         // test
-        for (int i = 0; i < 6; i++) 
-        {
-            WeaponBase test = Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("PeaShooter").prefab);
-            AddWeapon(test);
-        }
+        AddWeapon(Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("Jalapeno").prefab));
+        AddWeapon(Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("PeaShooter").prefab));
+        AddWeapon(Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("IceShooter").prefab));
+        AddWeapon(Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("DoublePeaShooter").prefab));
+        AddWeapon(Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("GatlingPeaShooter").prefab));
+        AddWeapon(Instantiate(GameManager.Instance.WeaponDatabase.GetWeapon("Jalapeno").prefab));
     }
 
     private void InitializePositionPoints()

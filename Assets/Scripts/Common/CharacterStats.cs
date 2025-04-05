@@ -45,6 +45,7 @@ public class CharacterStats
     {
         public bool isCrit;
         public float finalDamage;
+        public EnemyStatusSystem.StatusType type;
     }
 
     /// <summary>

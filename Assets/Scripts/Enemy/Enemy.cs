@@ -23,10 +23,13 @@ public abstract class Enemy : MonoBehaviour
 
     // 辅助数据
     protected Player _player;
+    public bool _isDie;                    // 是否进入死亡状态
 
     public abstract void StartAttack();
     public abstract void EndAttack();
     public abstract void ApplyDamage();
     public abstract CharacterStats.DamageResult CalculateDamage(float damage);
     public abstract void TakeDamage(CharacterStats.DamageResult damage, Transform transform);
+
+    public EnemyStats Stats { get { return _stats; } }
 }

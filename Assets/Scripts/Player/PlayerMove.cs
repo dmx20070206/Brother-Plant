@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        moveSpeed = GetComponent<Player>().stats.speed.Value;
+        moveSpeed = GetComponent<Player>()._stats.speed.Value;
         acceleration = 2 * moveSpeed;
         deceleration = 3 * moveSpeed;
         diagonalSpeedModifier = 0.95f;

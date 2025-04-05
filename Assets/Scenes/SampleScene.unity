@@ -184,8 +184,8 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
-  m_Depth: -1
+  orthographic size: 8
+  m_Depth: 10
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -272,6 +272,7 @@ MonoBehaviour:
   weaponManager: {fileID: 6225770060292169800, guid: 795bbcc65b58ad543adfbc96c1f29a2a, type: 3}
   ui_controller: {fileID: 2376748375600878322, guid: 83dfbfacbc3ffd843b70f82328bb6efe, type: 3}
   music_controller: {fileID: 5899131316814342322, guid: 6042d50869ecb4d44ae16ad69ea5954b, type: 3}
+  sun_controller: {fileID: 4994205892623156028, guid: f1b7e531b23b127408cfcab5520eab12, type: 3}
   _player: {fileID: 0}
   _playerAttribute: {fileID: 11400000, guid: e012e076c675a224892bf3ab8aee1281, type: 2}
   _enemyAttribute: {fileID: 11400000, guid: 49cc225fe638fe9458b158aa93c8101c, type: 2}
@@ -280,6 +281,7 @@ MonoBehaviour:
   _weaponDatabase: {fileID: 11400000, guid: 69ae12239d2d0a94aaaef10ea180de6b, type: 2}
   _ui_controller: {fileID: 0}
   _music_controller: {fileID: 0}
+  _sun_controller: {fileID: 0}
 --- !u!4 &1200241916
 Transform:
   m_ObjectHideFlags: 0

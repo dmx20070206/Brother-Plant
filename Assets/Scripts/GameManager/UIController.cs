@@ -8,10 +8,12 @@ public class UIController : MonoBehaviour
     public GameObject critEffectPrefab;
     public GameObject damagePopupPrefab;
     public GameObject healthUI;
+    public GameObject sunUI;
 
     public GameObject UICanvas;
 
     public HealthUI healthBar;
+    public SunUI sunCount;
 
     private void Awake()
     {
@@ -23,7 +25,9 @@ public class UIController : MonoBehaviour
     public void Initialize()
     {
         healthBar = Instantiate(healthUI, UICanvas.transform).GetComponent<HealthUI>();
+        sunCount = Instantiate(sunUI, UICanvas.transform).GetComponent<SunUI>();
         healthBar.name = "HealthBar";
+        sunCount.name = "SunCount";
     }
 
     private void OnDestroy()
@@ -33,9 +37,15 @@ public class UIController : MonoBehaviour
 
     public void ShowDamageFeedback(CharacterStats.DamageResult result, Transform transform)
     {
+        Color targetColor = result.type == EnemyStatusSystem.StatusType.Frozen || result.type == EnemyStatusSystem.StatusType.Slow ?
+            Color.blue : result.type == EnemyStatusSystem.StatusType.Burn ?
+            Color.red : result.type == EnemyStatusSystem.StatusType.Poison ?
+            Color.green : Color.white;
+
         DamagePopup.Create(
             transform.position,
             result.finalDamage.ToString("F0"),
+            targetColor,
             isCrit: result.isCrit
         );
 
