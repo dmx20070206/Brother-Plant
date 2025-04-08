@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // µ¥ÀıÊµÀı
+    // å•ä¾‹å®ä¾‹
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -26,33 +27,59 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject enemySpawn;
     public GameObject weaponManager;
+    public GameObject map_controller;
     public GameObject ui_controller;
     public GameObject music_controller;
     public GameObject sun_controller;
+    public GameObject level_controller;
+    public GameObject scene_controller;
+    public GameObject game_data_controller;
 
-    [Header("Íæ¼Ò")]
-    public Player _player;
+    [Header("æ•°æ®åº“")]
     public PlayerAttributeDataBase _playerAttribute;
-
-    [Header("µĞÈË")]
-    public HashSet<Enemy> _enemies = new HashSet<Enemy>();
     public EnemyAttributeDataBase _enemyAttribute;
+    public EnemySpawnDataBase _enemySpawnData;
+    public WeaponDataBase _weaponDatabase;
 
-    [Header("µĞÈË³öÉúµã")]
-    public EnemySpawn _spawner;
+    #region Game
+    [Header("ç©å®¶")]
+    private Player _player;
 
-    [Header("ÎäÆ÷")]
-    public WeaponManager _weaponManager;
-    public WeaponDatabase _weaponDatabase;
+    [Header("æ•Œäºº")]
+    private HashSet<Enemy> _enemies = new HashSet<Enemy>();
+    private List<string> _enemyNames = new List<string>();
 
-    [Header("UI ¿ØÖÆÆ÷")]
-    public UIController _ui_controller;
+    [Header("æ•Œäººå‡ºç”Ÿç‚¹")]
+    private EnemySpawnController _spawner;
+    private EnemyPoolSystem _enemyPoolSystem;
 
-    [Header("Music ¿ØÖÆÆ÷")]
-    public MusicController _music_controller;
+    [Header("æ­¦å™¨")]
+    private WeaponManager _weaponManager;
 
-    [Header("Ñô¹âÏµÍ³¿ØÖÆÆ÷")]
-    public SunController _sun_controller;
+    [Header("åœ°å›¾")]
+    private MapManager _mapManager;
+
+    [Header("UI æ§åˆ¶å™¨")]
+    private UIController _ui_controller;
+
+    [Header("Music æ§åˆ¶å™¨")]
+    private MusicController _music_controller;
+
+    [Header("é˜³å…‰ç³»ç»Ÿæ§åˆ¶å™¨")]
+    private SunController _sun_controller;
+    #endregion
+
+    #region Always
+    [Header("åœºæ™¯æ§åˆ¶å™¨")]
+    private SceneController _scene_controller;
+
+    [Header("å…³å¡æ§åˆ¶å™¨")]
+    private LevelController _level_controller;
+
+    [Header("æ•°æ®æ§åˆ¶å™¨")]
+    private GameDataController _game_data_controller;
+    #endregion
+
 
     private void Awake()
     {
@@ -64,18 +91,53 @@ public class GameManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-        InitialAll();
+        Init();
     }
 
-    public void InitialAll()
+    public void Init()
+    {
+        Instantiate(scene_controller, transform);
+        Instantiate(level_controller, transform);
+        Instantiate(game_data_controller, transform);
+    }
+
+    #region Scene Switch
+    public void EnterGame()
     {
         Instantiate(player);
-        Instantiate(enemySpawn, transform);
-        Instantiate(weaponManager, transform);
-        Instantiate(ui_controller, transform);
-        Instantiate(music_controller, transform);
-        Instantiate(sun_controller, transform);
+        Instantiate(map_controller);
+        Instantiate(ui_controller);
+        Instantiate(enemySpawn);
+        Instantiate(weaponManager);
+        Instantiate(music_controller);
+        Instantiate(sun_controller);
     }
+
+    public void ExitGame()
+    {
+        GameDataController.SaveData();
+    }
+
+    public void EnterMenu()
+    {
+        GameDataController.ClearData();
+    }
+
+    public void ExitMenu()
+    {
+
+    }
+
+    public void EnterShop()
+    {
+
+    }
+
+    public void ExitShop()
+    {
+
+    }
+    #endregion
 
     #region Player Management
     public Player Player
@@ -112,7 +174,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_enemies.Add(enemy))
         {
-            Debug.LogWarning($"µĞÈË {enemy.name} ÒÑ×¢²á£¬Ìø¹ıÖØ¸´×¢²á");
+            Debug.LogWarning($"æ•Œäºº {enemy.name} å·²æ³¨å†Œï¼Œè·³è¿‡é‡å¤æ³¨å†Œ");
         }
     }
 
@@ -120,7 +182,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_enemies.Remove(enemy))
         {
-            Debug.LogWarning($"³¢ÊÔÒÆ³ıÎ´×¢²áµÄµĞÈË: {enemy.name}");
+            Debug.LogWarning($"å°è¯•ç§»é™¤æœªæ³¨å†Œçš„æ•Œäºº: {enemy.name}");
         }
     }
 
@@ -138,28 +200,61 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Enemy Spawner
-    public EnemySpawn EnemySpawn
+    public EnemySpawnController EnemySpawn
     {
         get
         {
             return _spawner;
         }
     }
-    public void RegisterEnemySpawner(EnemySpawn spawner)
+    public void RegisterEnemySpawner(EnemySpawnController spawner)
     {
-        if(_spawner != null)
+        if (_enemyPoolSystem != null)
         {
             UnregisterEnemySpawner();
-        }    
+        }
         _spawner = spawner;
-        _spawner.name = "EnemySpawn";
+        _spawner.name = "EnemySpawnController";
     }
 
     public void UnregisterEnemySpawner()
     {
-        if(_spawner != null)
+        if (_spawner != null)
         {
             _spawner = null;
+        }
+    }
+    public EnemyPoolSystem EnemyPoolSystem
+    {
+        get
+        {
+            return _enemyPoolSystem;
+        }
+    }
+    public void RegisterEnemyPoolSystem(EnemyPoolSystem enemyPoolSystem)
+    {
+        if (_enemyPoolSystem != null)
+        {
+            UnregisterEnemyPoolSystem();
+        }
+        _enemyPoolSystem = enemyPoolSystem;
+    }
+
+    public void UnregisterEnemyPoolSystem()
+    {
+        if (_enemyPoolSystem != null)
+        {
+            _enemyPoolSystem = null;
+        }
+    }
+    #endregion
+
+    #region EnemySpawn DataBase
+    public EnemySpawnDataBase EnemySpawnDataBase
+    {
+        get
+        {
+            return _enemySpawnData;
         }
     }
     #endregion
@@ -193,7 +288,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Weapon DataBase
-    public WeaponDatabase WeaponDatabase
+    public WeaponDataBase WeaponDatabase
     {
         get
         {
@@ -218,6 +313,34 @@ public class GameManager : MonoBehaviour
         get
         {
             return _enemyAttribute;
+        }
+    }
+    #endregion
+
+    #region Map Management
+    public MapManager MapManager
+    {
+        get
+        {
+            return _mapManager;
+        }
+    }
+
+    public void RegisterMapController(MapManager mapManager)
+    {
+        if (_mapManager != null)
+        {
+            UnregisterMapController();
+        }
+        _mapManager = mapManager;
+        _mapManager.name = "MapController";
+    }
+
+    public void UnregisterMapController()
+    {
+        if (_mapManager != null)
+        {
+            _mapManager = null;
         }
     }
     #endregion
@@ -306,6 +429,89 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Level Controller
+    public LevelController LevelController
+    {
+        get
+        {
+            return _level_controller;
+        }
+    }
+    public void RegisterLevelController(LevelController level_controller)
+    {
+        if (_level_controller != null)
+        {
+            UnregisterLevelController();
+        }
+        _level_controller = level_controller;
+        _level_controller.name = "LevelController";
+    }
+
+    public void UnregisterLevelController()
+    {
+        if (_level_controller != null)
+        {
+            _level_controller = null;
+        }
+    }
+    #endregion
+
+    #region Scene Controller
+    public SceneController SceneController
+    {
+        get
+        {
+            return _scene_controller;
+        }
+    }
+
+    public void RegisterSceneController(SceneController scene_controller)
+    {
+        if (_scene_controller != null)
+        {
+            UnregisterSceneController();
+        }
+        _scene_controller = scene_controller;
+        _scene_controller.name = "SceneController";
+    }
+
+    public void UnregisterSceneController()
+    {
+        if (_scene_controller != null)
+        {
+            _scene_controller = null;
+        }
+    }
+    #endregion
+
+    #region GameData Controller
+    public GameDataController GameDataController
+    {
+        get
+        {
+            return _game_data_controller;
+        }
+    }
+
+    public void RegisterGameDataController(GameDataController game_data_controller)
+    {
+        if (_game_data_controller != null)
+        {
+            UnregisterGameDataController();
+        }
+        _game_data_controller = game_data_controller;
+        _game_data_controller.name = "GameDataController";
+    }
+
+    public void UnregisterGameDataController()
+    {
+        if (_game_data_controller != null)
+        {
+            _game_data_controller = null;
+        }
+    }
+    #endregion
+
     #region Utils
     public Enemy FindNearestEnemy(Vector3 position)
     {
@@ -314,7 +520,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var enemy in _enemies)
         {
-            if (enemy == null || enemy.GetComponent<Enemy>()._isDie) continue;
+            if (enemy == null || !enemy.isActiveAndEnabled || enemy.GetComponent<Enemy>()._isDie) continue;
 
             float distance = Vector3.Distance(position, enemy.transform.position);
             if (distance < minDistance)
@@ -324,6 +530,11 @@ public class GameManager : MonoBehaviour
             }
         }
         return nearest;
+    }
+
+    public List<string> GetAllEnemyName()
+    {
+        return _enemyNames;
     }
     #endregion
 }

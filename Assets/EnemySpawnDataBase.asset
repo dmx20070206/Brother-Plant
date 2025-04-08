@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc59b9dbf46f04b46989889fd084acaf, type: 3}
+  m_Name: EnemySpawnDataBase
+  m_EditorClassIdentifier: 
+  spawnData:
+  - id:
+      level: 0
+      enemyName: OrdinaryZombie
+    enemyPrefab: {fileID: 5136595178195368049, guid: 1c2494b5546ebf046864dc6683b6a870, type: 3}
+    initialDelay: 3
+    waves:
+    - spawnCount: 2
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 5
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 10
+      spawnInterval: 1
+      postWaveDelay: 3
+    TotalEnemies: 17
+  - id:
+      level: 0
+      enemyName: FootBallZombie
+    enemyPrefab: {fileID: 5136595178195368049, guid: 1ae71f6b312e97a4590ad81b48069f1b, type: 3}
+    initialDelay: 5
+    waves:
+    - spawnCount: 1
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 2
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 5
+      spawnInterval: 1
+      postWaveDelay: 3
+    TotalEnemies: 8
+  - id:
+      level: 0
+      enemyName: BackUpDancer
+    enemyPrefab: {fileID: 8287770589095560896, guid: 57fba66d5968a944a8b1ac943f8f0d17, type: 3}
+    initialDelay: 10
+    waves:
+    - spawnCount: 5
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 10
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 20
+      spawnInterval: 1
+      postWaveDelay: 3
+    TotalEnemies: 35
+  - id:
+      level: 0
+      enemyName: ImpZombie
+    enemyPrefab: {fileID: 5136595178195368049, guid: 7936f871f6dc56341be900469aa1f919, type: 3}
+    initialDelay: 3
+    waves:
+    - spawnCount: 10
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 10
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 10
+      spawnInterval: 1
+      postWaveDelay: 3
+    TotalEnemies: 30
+  - id:
+      level: 0
+      enemyName: BucketheadZombie
+    enemyPrefab: {fileID: 5136595178195368049, guid: ec8bdd7cb8105c147b227de4688faaeb, type: 3}
+    initialDelay: 3
+    waves:
+    - spawnCount: 3
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 3
+      spawnInterval: 1
+      postWaveDelay: 3
+    - spawnCount: 3
+      spawnInterval: 1
+      postWaveDelay: 3
+    TotalEnemies: 9

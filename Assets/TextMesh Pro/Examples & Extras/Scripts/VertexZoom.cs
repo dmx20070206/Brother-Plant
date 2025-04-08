@@ -176,7 +176,7 @@ namespace TMPro.Examples
 
                     textInfo.meshInfo[i].SortGeometry(scaleSortingOrder);
 
-                    // Updated modified vertex attributes
+                    // Updated modified vertex spawnData
                     textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
                     textInfo.meshInfo[i].mesh.uv = textInfo.meshInfo[i].uvs0;
                     textInfo.meshInfo[i].mesh.colors32 = textInfo.meshInfo[i].colors32;

@@ -100,5 +100,5 @@ MonoBehaviour:
   rotateSpeed: 30
   attractRange: 10
   baseSpeed: 3
-  acceleration: 1
+  acceleration: 0
   minDistance: 0.1

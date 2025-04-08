@@ -48,6 +48,10 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 5783962118770001114, guid: bfb1799606fbabd4c9c4c943cd650abf, type: 3}
   healthUI: {fileID: 2482613376560560166, guid: 6a147d8708597e044b70a34907f4b34f, type: 3}
   sunUI: {fileID: 4552616691346962904, guid: a6cdec2bcf4571749809108e98f33b5c, type: 3}
+  gameStartUI: {fileID: 6328857280682995881, guid: 913ac588aba9bed43b57334d7c1186e7, type: 3}
+  progressUI: {fileID: 3504466433174877740, guid: 3575c46cd720d38419751cf95926a626, type: 3}
   UICanvas: {fileID: 0}
-  healthBar: {fileID: 0}
-  sunCount: {fileID: 0}
+  _health_ui: {fileID: 0}
+  _sun_ui: {fileID: 0}
+  _gameStart_ui: {fileID: 0}
+  _progress_ui: {fileID: 0}

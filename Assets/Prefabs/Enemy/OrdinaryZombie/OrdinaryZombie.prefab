@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 40a39f948134bda47bb2e1f826e43121, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.8444444, y: 1.6}
@@ -274,7 +274,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5136595178195368049}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -328,30 +328,7 @@ MonoBehaviour:
   initialDamageDelay: 0.1
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
-  _stats:
-    name: 
-    maxHealth:
-      _baseValue: 0
-    healthRegenRate:
-      _baseValue: 0
-    critChance:
-      _baseValue: 0
-    critMultiplier:
-      _baseValue: 0
-    armor:
-      _baseValue: 0
-    dodgeChance:
-      _baseValue: 0
-    speed:
-      _baseValue: 0
-    experienceReward:
-      _baseValue: 0
-    dropRate:
-      _baseValue: 0
-    damage:
-      _baseValue: 0
-    attackRange:
-      _baseValue: 0
+  _isDie: 0
   headPrefab: {fileID: 9163108388982771559, guid: c1d95facde314d9419baee2f2b3f77d5, type: 3}
   headPos: {fileID: 4750618158283649593}
 --- !u!114 &-5508899208616879086
@@ -394,6 +371,7 @@ MonoBehaviour:
     spawnPos: {fileID: 6759708562260940662}
   _originalColor: {r: 1, g: 1, b: 1, a: 1}
   _spriteRenderer: {fileID: 0}
+  _enemy: {fileID: 0}
 --- !u!1 &6503257456134975409
 GameObject:
   m_ObjectHideFlags: 0

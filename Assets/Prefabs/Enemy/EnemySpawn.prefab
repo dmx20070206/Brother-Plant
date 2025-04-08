@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2271669982426614469}
-  - component: {fileID: 3158064534425358470}
+  - component: {fileID: -1742648536302895720}
+  - component: {fileID: 517530003197606675}
   m_Layer: 0
   m_Name: EnemySpawn
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3158064534425358470
+--- !u!114 &-1742648536302895720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,15 +42,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 4361547952085088619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e7ed4fa720b2914db6bb12721fe9ea3, type: 3}
+  m_Script: {fileID: 11500000, guid: 38e0c8bef35dd7e48b5655f63b0a4667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5136595178195368049, guid: 1c2494b5546ebf046864dc6683b6a870, type: 3}
-  spawnAreas:
-  - center: {x: 0, y: 0}
-    size: {x: 40, y: 40}
-  maxEnemies: 200
-  spawnInterval: 3
-  spawnCountPerWave: 5
+--- !u!114 &517530003197606675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361547952085088619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b27eda5d8349d48bc7759f8678b901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   warningPrefab: {fileID: 2657647120862021571, guid: e05807496d2b66b4b9e0c9506ecb24f8, type: 3}
-  EnemyContainer: {fileID: 0}
+  curLevel: 0
+  currentEnemyCount: 0
+  spawnData: []
